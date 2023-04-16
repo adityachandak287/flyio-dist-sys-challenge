@@ -1,10 +1,11 @@
 {
   "name": "flyio-dist-sys-challenge",
   "version": "1.0.0",
-  "description": "",
+  "description": "Fly.io Distributed System Challenge attempted with Node.js + Typescript",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
+    "build:pkg": "tsc && pkg dist/index.js -t node18-linux-x64 -o bin/maelstrom-node",
     "format": "prettier -w src",
     "format:check": "prettier -l src"
   },
@@ -13,6 +14,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^18.15.11",
+    "pkg": "^5.8.1",
     "prettier": "^2.8.7",
     "typescript": "^4.9.5"
   },

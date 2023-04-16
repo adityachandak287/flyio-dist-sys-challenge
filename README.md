@@ -1,8 +1,30 @@
-# Node.js + TypeScript Starter
+# Fly.io Distributed System Challenge
 
-A very basic starter for Node.js + TypeScript projects using ES Modules.
+Challenge: https://fly.io/dist-sys/
 
-Full Lesson on Fireship.io: [Node.js + TypeScript Starter](https://fireship.io/lessons/typescript-nodejs-setup/)
+## Commands
 
+### Build
 
+```bash
+# Run tsc build
+npm run build
+# Run tsc build and package as binary
+npm run build:pkg
+```
 
+### Run
+
+NOTE: replace `~/Downloads/maelstrom/maelstrom` with path to downloaded and extracted [maelstrom CLI](https://github.com/jepsen-io/maelstrom/releases/latest).
+
+Run against sample input
+
+```bash
+./bin/maelstrom-node < input
+```
+
+Run echo test
+
+```bash
+~/Downloads/maelstrom/maelstrom test -w echo --bin bin/maelstrom-node --node-count 1 --time-limit 10
+```
