@@ -28,3 +28,10 @@ Run echo test
 ```bash
 ~/Downloads/maelstrom/maelstrom test -w echo --bin bin/maelstrom-node --node-count 1 --time-limit 10
 ```
+
+Run generate test
+
+```bash
+~/Downloads/maelstrom/maelstrom test -w unique-ids --bin bin/maelstrom-node --time-limit 30 --rate 1000 --node-count 3 --availability total --nemesis partition
+
+```

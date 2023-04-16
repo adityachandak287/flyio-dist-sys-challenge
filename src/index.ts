@@ -1,6 +1,6 @@
 import { PayloadType } from './constants';
 import { Node } from './node';
-import { BasePayload, EchoPayload, InitPayload } from './types/payload';
+import { BasePayload, EchoPayload, GeneratePayload, InitPayload } from './types/payload';
 
 console.error('Node started!');
 
@@ -25,6 +25,9 @@ process.stdin.on('data', (data) => {
           break;
         case PayloadType.ECHO:
           node.echo(payload as EchoPayload);
+          break;
+        case PayloadType.GENERATE:
+          node.generate(payload as GeneratePayload);
           break;
         default:
           console.error('Invalid payload type', payload.body.type);

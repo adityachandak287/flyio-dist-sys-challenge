@@ -26,3 +26,10 @@ export interface EchoPayload extends BasePayload {
     echo: string;
   };
 }
+
+export interface GeneratePayload extends BasePayload {
+  body: {
+    type: PayloadType.GENERATE;
+    msg_id: number;
+  };
+}
