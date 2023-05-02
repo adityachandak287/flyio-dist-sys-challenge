@@ -43,7 +43,7 @@ Run broadcast (single node) test
 
 ```
 
-Run broadcast (multi node) test
+Run broadcast (multi node) test without network partitions
 
 ```bash
 ~/Downloads/maelstrom/maelstrom test -w broadcast --bin bin/maelstrom-node --node-count 5 --time-limit 20 --rate 10
