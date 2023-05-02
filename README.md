@@ -42,3 +42,10 @@ Run broadcast (single node) test
 ~/Downloads/maelstrom/maelstrom test -w broadcast --bin bin/maelstrom-node --node-count 1 --time-limit 20 --rate 10
 
 ```
+
+Run broadcast (multi node) test
+
+```bash
+~/Downloads/maelstrom/maelstrom test -w broadcast --bin bin/maelstrom-node --node-count 5 --time-limit 20 --rate 10
+
+```

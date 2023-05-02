@@ -1,5 +1,5 @@
 import { randomUUID } from 'crypto';
-import { OutputType } from './constants';
+import { OutputType, PayloadType } from './constants';
 import { output } from './output';
 import {
   BroadcastPayload,
@@ -60,16 +60,36 @@ export class Node {
   }
 
   broadcast(payload: BroadcastPayload): void {
-    this.broadcastValues.add(payload.body.message);
+    const broadcastMessage = payload.body.message;
+    const isNewValue = !this.broadcastValues.has(broadcastMessage);
+    if (isNewValue) {
+      this.broadcastValues.add(broadcastMessage);
+    }
 
-    output({
-      src: this.nodeId || payload.dest,
-      dest: payload.src,
-      body: {
-        type: OutputType.BROADCAST_OK,
-        in_reply_to: payload.body.msg_id,
-      },
-    });
+    // Check for msg_id to be present as we do not want to responsd to broadcast messages from other nodes
+    if (payload.body.msg_id) {
+      output({
+        src: this.nodeId || payload.dest,
+        dest: payload.src,
+        body: {
+          type: OutputType.BROADCAST_OK,
+          in_reply_to: payload.body.msg_id,
+        },
+      });
+    }
+
+    if (isNewValue) {
+      for (const neighbour of this.neighbours) {
+        output({
+          src: this.nodeId,
+          dest: neighbour,
+          body: {
+            type: PayloadType.BROADCAST,
+            message: broadcastMessage,
+          },
+        });
+      }
+    }
   }
 
   read(payload: ReadPayload): void {
