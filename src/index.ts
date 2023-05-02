@@ -1,6 +1,14 @@
 import { PayloadType } from './constants';
 import { Node } from './node';
-import { BasePayload, EchoPayload, GeneratePayload, InitPayload } from './types/payload';
+import {
+  BasePayload,
+  BroadcastPayload,
+  EchoPayload,
+  GeneratePayload,
+  InitPayload,
+  ReadPayload,
+  TopologyPayload,
+} from './types/payload';
 
 console.error('Node started!');
 
@@ -28,6 +36,15 @@ process.stdin.on('data', (data) => {
           break;
         case PayloadType.GENERATE:
           node.generate(payload as GeneratePayload);
+          break;
+        case PayloadType.BROADCAST:
+          node.broadcast(payload as BroadcastPayload);
+          break;
+        case PayloadType.READ:
+          node.read(payload as ReadPayload);
+          break;
+        case PayloadType.TOPOLOGY:
+          node.topology(payload as TopologyPayload);
           break;
         default:
           console.error('Invalid payload type', payload.body.type);

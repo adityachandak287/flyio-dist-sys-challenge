@@ -1,3 +1,7 @@
 {"src":"c1","dest":"n1","body":{"type":"init","msg_id":1,"node_id":"n3","node_ids":["n1", "n2", "n3"]}}
 {"src":"c1","dest":"n1","body":{"type":"echo","msg_id":2,"echo":"Please echo 35"}}
 {"src":"c1","dest":"n1","body":{"type":"generate","msg_id":3}}
+{"src":"c1","dest":"n1","body":{"type":"broadcast","msg_id":4,"message":999}}
+{"src":"c1","dest":"n1","body":{"type":"broadcast","msg_id":5,"message":789}}
+{"src":"c1","dest":"n1","body":{"type":"read","msg_id":6}}
+{"src":"c1","dest":"n1","body":{"type":"topology","msg_id":7,"topology":{"n1":["n2","n3"],"n2":["n1"],"n3":["n1"]}}}

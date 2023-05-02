@@ -33,3 +33,26 @@ export interface GeneratePayload extends BasePayload {
     msg_id: number;
   };
 }
+
+export interface BroadcastPayload extends BasePayload {
+  body: {
+    type: PayloadType.BROADCAST;
+    msg_id: number;
+    message: number;
+  };
+}
+
+export interface ReadPayload extends BasePayload {
+  body: {
+    type: PayloadType.READ;
+    msg_id: number;
+  };
+}
+
+export interface TopologyPayload extends BasePayload {
+  body: {
+    type: PayloadType.TOPOLOGY;
+    msg_id: number;
+    topology: Record<string, string[]>;
+  };
+}

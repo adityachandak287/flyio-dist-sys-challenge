@@ -35,3 +35,10 @@ Run generate test
 ~/Downloads/maelstrom/maelstrom test -w unique-ids --bin bin/maelstrom-node --time-limit 30 --rate 1000 --node-count 3 --availability total --nemesis partition
 
 ```
+
+Run broadcast (single node) test
+
+```bash
+~/Downloads/maelstrom/maelstrom test -w broadcast --bin bin/maelstrom-node --node-count 1 --time-limit 20 --rate 10
+
+```
